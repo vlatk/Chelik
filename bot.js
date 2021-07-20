@@ -39,8 +39,8 @@ robot.on("ready", function() {
 
 /* 
 
-setInterval(function(){
-request.post({url: "https://api.server-discord.com/v2/bots/726865963424677909/stats", headers: {"Authorization": "SDC "+config.sdctoken, "Content-Type": "application/json"}, body: JSON.stringify({
+setInterval(function(){               
+request.post({url: "https://api.server-discord.com/v2/bots/айди_вашего_проекта/stats", headers: {"Authorization": "SDC "+config.sdctoken, "Content-Type": "application/json"}, body: JSON.stringify({
 shards: 1,
 servers: robot.guilds.cache.size
 })}, (error, response, body) => {
@@ -49,7 +49,8 @@ servers: robot.guilds.cache.size
 }, 40000);});
 
 */ 
-//код который вы видите выше используется для отправки количества серверов на которых есть бот на сайт https://bots.server-discord.com/. Если у вас уже есть проект на это сайте, то откройте настройки бота и получите api ключ
+//код который вы видите выше используется для отправки количества серверов на которых есть бот на сайт https://bots.server-discord.com/. 
+//Если у вас уже есть проект на это сайте, то откройте настройки бота и получите api ключ
 //после чего этот api ключ вставьте в config.sdctoken и разкомментируйте этот код.
 
 
