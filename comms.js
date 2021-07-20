@@ -112,7 +112,7 @@ mess.channel.send(embed)
 function help(robot, mess, args) {
   if(!args[1]){ //Добавь эту строку
   const request = require("request")
-  var token = 'your_bot_token_from_developers.discord.com'
+  var token = 'your token from https://developers.discord.com/your_project_id/bot'
   request.post({url: `https://discord.com/api/v9/channels/${mess.channel.id}/messages`, headers: {"Authorization": "Bot "+token, "Content-Type": "application/json"},
   body: JSON.stringify({
      // "content": "Hello, World!",
@@ -133,7 +133,9 @@ function help(robot, mess, args) {
   { name: 'Чтобы узнать о команде больше', value: `напишите **\`help <команда>\`**, префикс бота: \` ~ \`` , inline: true },
   { name: '_ _', value: `Также, вы можете оставить отзыв о боте 
   на [саппорт-сервере](https://discord.gg/5Qf3m9ywpx) бота или на [b.SD.C](https://bots.server-discord.com/726865963424677909). 
-  Спасибо!😁`},
+  Спасибо!😁
+  
+  Вы также можете найти исходный код на нашем [GitHub](https://github.com/vlatk/Chelik)`},
   { name: '▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ', value: '_ _' }
 
   ]
@@ -155,11 +157,14 @@ function help(robot, mess, args) {
              }},
              {
            "type": 2,
-           "label": "💻Наш сайт",
+           "label": "GitHub",
            "style": 5,
-           "url": "https://vlatk.webador.com/"
-             
-       },
+           "url": "https://github.com/vlatk/Chelik",
+          "emoji": {
+            "id": "867104822481649734",
+            "name": "github",
+            "animated": false
+           }},
        {
         "type": 2,
         "label": "b.SD.c",
