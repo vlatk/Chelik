@@ -40,14 +40,13 @@ robot.on("ready", function() {
 /* 
 
 setInterval(function(){
-}, 40000);
 request.post({url: "https://api.server-discord.com/v2/bots/726865963424677909/stats", headers: {"Authorization": "SDC "+config.sdctoken, "Content-Type": "application/json"}, body: JSON.stringify({
 shards: 1,
 servers: robot.guilds.cache.size
 })}, (error, response, body) => {
       if(error) console.log(error);
   });
-}); 
+}, 40000);});
 
 */ 
 //код который вы видите выше используется для отправки количества серверов на которых есть бот на сайт https://bots.server-discord.com/. Если у вас уже есть проект на это сайте, то откройте настройки бота и получите api ключ
