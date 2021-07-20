@@ -1,0 +1,20 @@
+[
+    {"name": "help", "description": "Эта команда покажет вам список всех команд.", "usage": "~help"},
+    {"name": "ban", "description": "Эта команда банит пользователя с помощью упоминания.", "usage": "`~ban <@пользователь> <причина>`"},
+    {"name": "unban", "description": "Эта команда возвращает пользователя из бана с помощью айди.", "usage": "`~unban <айди пользователя>`"},
+    {"name": "kick", "description": "Эта команда кикает пользователя.", "usage": "`~kick <@пользователь> <причина>`"},
+    {"name": "avatar", "description": "Эта команда показывает ваш аватар или аватар пользователя которого вы упоминаете.", "usage": "`~avatar <пусто или @пользователь>`"},
+    {"name": "oir", "description": "Орел и решка", "usage": "`~oir`"},
+    {"name": "8ball", "description": "Получите ответ на свой вопрос от шара предсказаний!", "usage": "`~8ball <ваш вопрос>`"},
+    {"name": "hello", "description": "Просто привет", "usage": "`~hello`"},
+    {"name": "test", "description": "Тест!", "usage": "`~test`"},
+    {"name": "invite", "description": "Пригласить бота к себе на сервер", "usage": "`~invite`"},
+    {"name": "say", "description": "Сказать что-либо от имени бота", "usage": "`~say <текст>`"},
+    {"name": "clear", "description": "Удаляет указаное вами количество сообщений", "usage": "`~clear <кол-во сообщений>`"},
+    {"name": "chlog", "description": "Показывает что нового в текущей версии", "usage": "`~chlog`"},
+    {"name": "info", "description": "Информация о боте", "usage": "`~info`"},
+    {"name": "servers", "description": "Показывает информацию о количестве серверов на которых есть бот.", "usage": "`~servers`"},
+    {"name": "covid", "description": "Показывает статистику заболеваний в странах или всем мире. Информация обновляется раз в сутки", "usage": "`~covid <ничего|ru|ua|tr|cy|kz|us>`"},
+    {"name": "bsstats", "description": "Показывает статистику игрока/клуба в игре Brawl Stars используя внутриигровой тег.", "usage": "`~bsstats player <#тег игрока>` /  `~bsstats club <#тег клуба>`"},
+    {"name": "gdstats", "description": "Показывает статистику игрока/уровня в игре Geometry Dash используя имя или ID.", "usage": "`~gdstats player <имя игрока или ID>` / `~gdstats level <ID уровня>`"}
+    ]

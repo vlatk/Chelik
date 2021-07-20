@@ -1,0 +1,5 @@
+{
+    "token" : "your_token",
+    "prefix" : "your_prefix",
+    "sdctoken": "sdctoken( используется для того чтобы передовать число серверов на которых есть бот на сайт https://bots.server-discord.com/)" 
+}
