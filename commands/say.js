@@ -10,5 +10,5 @@ exports.run = async (robot, mess, args) => {
     
     mess.delete().catch(); // Удаление сообщения пользователя после отправки 
     
-    mess.channel.send(args, {disableMentions: "everyone"});
+    mess.channel.send(args, { allowedMentions: { parse: [], repliedUser: false } });
 }

@@ -5,15 +5,25 @@ exports.name = "bsstats";
 exports.guildonly = false;
 
 exports.run = async (robot, mess, args)=>{
-    let botmsg = await mess.reply( new Discord.MessageEmbed({title: "Подождите секундочку...", description: "Мы получаем информацию с серверов Brawl Stars. Это займет от 2 до 5 секунд. Пожалуйста подождите"}).setThumbnail('https://cdn.discordapp.com/emojis/867875250121211934.gif?v=1').setColor("GREEN"));
-    if(!args[0]) return botmsg.edit( new Discord.MessageEmbed({title: "Статистика Brawl Stars", description: "Выберите \`player/club\` и введи тег игрока/клуба."}).setColor("DARK_RED"));
+  try{
+    var embed = new Discord.MessageEmbed({title: "Подождите секундочку...", description: "Мы получаем информацию с серверов Brawl Stars. Это займет от 2 до 5 секунд. Пожалуйста подождите"}).setThumbnail('https://cdn.discordapp.com/emojis/867875250121211934.gif?v=1').setColor("GREEN")
+    var embed1 = new Discord.MessageEmbed({title: "Статистика Brawl Stars", description: "Выберите \`player/club\` и введи тег игрока/клуба."}).setColor("DARK_RED")
+    var embed2 =  new Discord.MessageEmbed({title: "Статистика Brawl Stars", description: "Проверьте правильность написания тега."}).setColor("DARK_RED")
+
+    var embed4 =  new Discord.MessageEmbed({title: "Статистика Brawl Stars", description: "Проверьте правильность написания тега."}).setColor("DARK_RED")
+    var embed5 =  new Discord.MessageEmbed({title: "Статистика Brawl Stars", description: `Неправильное использование команды! \n Использование: \n
+    \`~bsstats player <тег без #>\`
+    \`~bsstats club <тег без #>\``}).setColor("DARK_RED")
+
+  let botmsg = await mess.reply({ embeds: [embed] });
+    if(!args[0]) return botmsg.edit({ embeds: [embed1] });
 
     switch(args[0]) {
     case 'player':
-    request({url: `https://api.brawlstars.com/v1/players/%23${args[1].replace(/[^a-zа-яё0-9]/gi, '')}/battlelog`, headers: {"Authorization": "your bearer token from https://developer.brawlstars.com/#/", "Content-Type": "application/json"}}, (err, res, body) => {
+    request({url: `https://api.brawlstars.com/v1/players/%23${args[1].replace(/[^a-zё0-9]/gi, '')}/battlelog`, headers: {"Authorization": "bearer token", "Content-Type": "application/json"}}, (err, res, body) => {
       if(err) return console.error(err);
       var result1 = JSON.parse(body);
-      if(result1.reason) return botmsg.edit( new Discord.MessageEmbed({title: "Статистика Brawl Stars", description: "Проверьте правильность написания тега."}).setColor("DARK_RED"));
+      if(result1.reason) return botmsg.edit({ embeds: [embed2] });
       var battlemap = (result1.items[0].event.map);
       if(result1.items[0].event.map == null) battlemap = "Пользовательская карта";
   
@@ -34,6 +44,7 @@ exports.run = async (robot, mess, args)=>{
       if(battlemap == 'SUPER CITY') battlemode = "Разгром супер сити";
       if(result1.items[0].battle.mode == "volleyBrawl") battlemode = "Волейбой";
       if(result1.items[0].battle.mode == "trophyThieves") battlemode = "Похитители трофеев";
+      if(result1.items[0].battle.mode == "basketBrawl") battlemode = "Баскетбой";
   
       var battleresult = (result1.items[0].battle.result);
       if(result1.items[0].battle.result == "victory") battleresult = "Победа";
@@ -49,9 +60,10 @@ exports.run = async (robot, mess, args)=>{
       if(result1.items[0].battle.type == "challenge") battletype = "Испытание";
       if(result1.items[0].battle.type == undefined) battletype = "Особое событие";
   
-    request({url: `https://api.brawlstars.com/v1/players/%23${args[1].replace(/[^a-zа-яё0-9]/gi, '')}`, headers: {"Authorization": "your bearer token from https://developer.brawlstars.com/#/", "Content-Type": "application/json"}}, (err, res, body) => {
+    request({url: `https://api.brawlstars.com/v1/players/%23${args[1].replace(/[^a-zё0-9]/gi, '')}`, headers: {"Authorization": "", "Content-Type": "application/json"}}, (err, res, body) => {
       if(err) return console.error(err);
       var result = JSON.parse(body);
+      var embed3 =  new Discord.MessageEmbed({title: "Статистика Brawl Stars", description: "Проверьте правильность написания тега."}).setColor(`RED`)
       var roborub = "0";
       if(result.bestRoboRumbleTime == 1) roborub = "Нормально";
   if(result.bestRoboRumbleTime == 2) roborub = "Сложно";
@@ -109,6 +121,7 @@ exports.run = async (robot, mess, args)=>{
       if(battlemode == 'Разгром супер сити') mode = "<:rampage:863814096063561788> **Режим:**";
       if(battlemode == 'Волейбой') mode = "<:volleybrawl:864084739718905907> **Режим:**";
       if(battlemode == 'Похитители трофеев') mode = "<:trophythieves:866595105041154048> **Режим:**";
+      if(battlemode == 'Баскетбой') mode = "<:basketbrawl:869588056104124506> **Режим:**";
   
   var res = ''
   if(battleresult == 'Победа') res = '<a:win:863804751752855562> **Результат:**';
@@ -120,8 +133,8 @@ exports.run = async (robot, mess, args)=>{
   if(result.club.name == undefined) clubname = 'Не состоит в клубе';
   var clubtag = (result.club.tag);
   if(result.club.tag == undefined) clubtag = '#000000000';
-      if(result.reason) return botmsg.edit( new Discord.MessageEmbed({title: "Статистика Brawl Stars", description: "Проверьте правильность написания тега."}).setColor(`${result.nameColor}`));
-      var embed = new Discord.MessageEmbed({title: `Статистика игрока в Brawl Stars`, description: `_ _`}).setThumbnail(`https://cdn.brawlify.com/profile/${result.icon.id}.png`).addFields(
+      if(result.reason) return botmsg.edit({ embeds: [embed3] });
+      var embed8 = new Discord.MessageEmbed({title: `Статистика игрока в Brawl Stars`, description: `_ _`}).setThumbnail(`https://cdn.brawlify.com/profile/${result.icon.id}.png`).addFields(
         {name: "_ _", value: "_ _"},
         {name: "_Основная информация_", value: `<:account:863860550072401931> **Имя:** \`${result.name}\`
         <:id:863854022963101737> **Тег:** \`${result.tag}\`
@@ -147,14 +160,14 @@ exports.run = async (robot, mess, args)=>{
         {name: "_ _", value: "_ _"},
         { name: '▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ', value: '_ _' }
     ).setColor('RANDOM').setTimestamp().setFooter('Челик БОТ', "https://cdn.discordapp.com/avatars/726865963424677909/428c60ceb40c3aeba0f98580ab34c726.webp");
-     botmsg.edit(embed)
+     botmsg.edit({ embeds: [embed8] })
   })})
      break;
   case 'club':
-    request({url: `https://api.brawlstars.com/v1/clubs/%23${args[1].replace(/[^a-zа-яё0-9]/gi, '')}`, headers: {"Authorization": "your bearer token from https://developer.brawlstars.com/#/", "Content-Type": "application/json"}}, (err, res, body) => {
+    request({url: `https://api.brawlstars.com/v1/clubs/%23${args[1].replace(/[^a-zё0-9]/gi, '')}`, headers: {"Authorization": "bearer token", "Content-Type": "application/json"}}, (err, res, body) => {
       if(err) return console.error(err);
       var result2 = JSON.parse(body);
-      if(result2.reason) return botmsg.edit( new Discord.MessageEmbed({title: "Статистика Brawl Stars", description: "Проверьте правильность написания тега."}).setColor("DARK_RED"));
+      if(result2.reason) return botmsg.edit({ embeds: [embed4] });
       var clubb = ''
       if(result2.type == 'open') clubb = 'Открытый'
       if(result2.type == 'closed') clubb = 'Закрытый'
@@ -169,7 +182,7 @@ exports.run = async (robot, mess, args)=>{
      if(result2.type == 'inviteOnly') typee = '<:level:863791324343173141> **Тип клуба:**'
   
      
-      var embed = new Discord.MessageEmbed({title: `Статистика клуба в Brawl Stars`, description: `_ _`}).setThumbnail(`https://cdn.brawlify.com/club/${result2.badgeId}.png`).addFields(
+      var embed9 = new Discord.MessageEmbed({title: `Статистика клуба в Brawl Stars`, description: `_ _`}).setThumbnail(`https://cdn.brawlify.com/club/${result2.badgeId}.png`).addFields(
         {name: "_ _", value: "_ _"},
         {name: "_Основная информация_", value: `<:account:863860550072401931> **Имя:** \`${result2.name}\`
         <:id:863854022963101737> **Тег:** \`${result2.tag}\`
@@ -186,12 +199,11 @@ exports.run = async (robot, mess, args)=>{
         {name: "_ _", value: "_ _"},
         { name: '▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ', value: '_ _' }
     ).setColor('RANDOM').setTimestamp().setFooter('Челик БОТ', "https://cdn.discordapp.com/avatars/726865963424677909/428c60ceb40c3aeba0f98580ab34c726.webp");
-     botmsg.edit(embed)
+     botmsg.edit({ embeds: [embed9] })
   })
      break;
     default: 
-    botmsg.edit( new Discord.MessageEmbed({title: "Статистика Brawl Stars", description: `Неправильное использование команды! \n Использование: \n
-    \`~bsstats player <тег без #>\`
-    \`~bsstats club <тег без #>\``}).setColor("DARK_RED"));
-    }
+    botmsg.edit({ embeds: [embed5] });
+    }}
+    catch(err){mess.reply({ content: `\`\`\`js\n${err.toString("")}\`\`\``, allowedMentions: { repliedUser: true }})}
 }

@@ -6,5 +6,5 @@ exports.guildonly = false;
 exports.run = async (robot, mess, args)=>{
     var text = 'Тест!'
     var embed = new Discord.MessageEmbed({title: text, description: 'Это команда тест!'}).setColor("RANDOM");
-    mess.channel.send(embed);
+    mess.channel.send({embeds: [embed]});
 }

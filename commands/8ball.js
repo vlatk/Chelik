@@ -15,4 +15,4 @@ exports.run = async (robot, mess, args) => {
     .addFields({name: '<:void:863803473460068402>', value: '▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬', inline: true})
     .setTimestamp()
     .setFooter(mess.author.tag, mess.author.displayAvatarURL());
-    mess.channel.send(embed)}
+    mess.channel.send({ embeds: [embed] })}

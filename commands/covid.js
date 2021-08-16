@@ -25,7 +25,7 @@ exports.run = async (robot, mess, args)=>{
           {name: "_ _", value: "_ _"},
           { name: '▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ', value: '_ _' }
       ).setColor('RED').setTimestamp().setFooter('Челик БОТ', "https://cdn.discordapp.com/avatars/726865963424677909/428c60ceb40c3aeba0f98580ab34c726.webp");
-        mess.channel.send(embed)
+        mess.channel.send({ embeds: [embed] })
       });
     
     }else if(!args[0]){
@@ -41,9 +41,10 @@ exports.run = async (robot, mess, args)=>{
           {name: "_ _", value: "_ _"},
           { name: '▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ', value: '_ _' }
       ).setColor('RED').setTimestamp().setFooter('Челик БОТ', "https://cdn.discordapp.com/avatars/726865963424677909/428c60ceb40c3aeba0f98580ab34c726.webp");
-        mess.channel.send(embed)
+        mess.channel.send({ embeds: [embed] })
       });
     }else{
-    mess.channel.send(new Discord.MessageEmbed({title: 'Статиска заболеваний COVID-19🦠', description: 'Неизвестая страна для просмотра статистики😕'}).setColor('DARK_RED').addFields({name: "_ _", value: "_ _"}, {name: 'Попробуйте:', value: '\`~help covid\`'}, {name: "_ _", value: "_ _"}, { name: '▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ', value: '_ _' }).setFooter('Челик БОТ', "https://cdn.discordapp.com/avatars/726865963424677909/428c60ceb40c3aeba0f98580ab34c726.webp"));
+      var embed1 = new Discord.MessageEmbed({title: 'Статиска заболеваний COVID-19🦠', description: 'Неизвестая страна для просмотра статистики😕'}).setColor('DARK_RED').addFields({name: "_ _", value: "_ _"}, {name: 'Попробуйте:', value: '\`~help covid\`'}, {name: "_ _", value: "_ _"}, { name: '▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ', value: '_ _' }).setFooter('Челик БОТ', "https://cdn.discordapp.com/avatars/726865963424677909/428c60ceb40c3aeba0f98580ab34c726.webp")
+    mess.channel.send({ embeds: [embed1] });
     }
 }

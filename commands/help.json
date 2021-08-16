@@ -4,9 +4,9 @@
     {"name": "unban", "description": "Эта команда возвращает пользователя из бана с помощью айди.", "usage": "`~unban <айди пользователя>`"},
     {"name": "kick", "description": "Эта команда кикает пользователя.", "usage": "`~kick <@пользователь> <причина>`"},
     {"name": "avatar", "description": "Эта команда показывает ваш аватар или аватар пользователя которого вы упоминаете.", "usage": "`~avatar <пусто или @пользователь>`"},
-    {"name": "oir", "description": "Орел и решка", "usage": "`~oir`"},
+    {"name": "coin", "description": "Орел и решка", "usage": "`~coin`"},
     {"name": "8ball", "description": "Получите ответ на свой вопрос от шара предсказаний!", "usage": "`~8ball <ваш вопрос>`"},
-    {"name": "hello", "description": "Просто привет", "usage": "`~hello`"},
+    {"name": "lol", "description": "¯/_(ツ)_/¯", "usage": "`~lol`"},
     {"name": "test", "description": "Тест!", "usage": "`~test`"},
     {"name": "invite", "description": "Пригласить бота к себе на сервер", "usage": "`~invite`"},
     {"name": "say", "description": "Сказать что-либо от имени бота", "usage": "`~say <текст>`"},
@@ -16,5 +16,9 @@
     {"name": "servers", "description": "Показывает информацию о количестве серверов на которых есть бот.", "usage": "`~servers`"},
     {"name": "covid", "description": "Показывает статистику заболеваний в странах или всем мире. Информация обновляется раз в сутки", "usage": "`~covid <ничего|ru|ua|tr|cy|kz|us>`"},
     {"name": "bsstats", "description": "Показывает статистику игрока/клуба в игре Brawl Stars используя внутриигровой тег.", "usage": "`~bsstats player <#тег игрока>` /  `~bsstats club <#тег клуба>`"},
-    {"name": "gdstats", "description": "Показывает статистику игрока/уровня в игре Geometry Dash используя имя или ID.", "usage": "`~gdstats player <имя игрока или ID>` / `~gdstats level <ID уровня>`"}
+    {"name": "gdstats", "description": "Показывает статистику игрока/уровня в игре Geometry Dash используя имя или ID.", "usage": "`~gdstats player <имя игрока или ID>` / `~gdstats level <ID уровня>`"},
+    {"name": "hypixel", "description": "Показывает кол-во игроков на данный момент и показывает статистику игрока на сервере.", "usage": "`~hypixel` / `~hypixel <ник или uuid>`"},
+    {"name": "skin", "description": "Показывает ваш Minecraft скин.", "usage": "`~skin <ник>`"},
+    {"name": "uuid", "description": "Показывает uuid вашего аккаунта Minecraft.", "usage": "`~uuid <ник>`"},
+    {"name": "rate", "description": "Отправляет отзыв о боте на саппорт сервер в специальный канал", "usage": "`~rate <комментарий>`"}
     ]
