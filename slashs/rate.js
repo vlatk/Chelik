@@ -8,7 +8,7 @@ exports.run = async (robot, interaction)=>{
     try{
         if(!interaction.options.data[0].value) return interaction.reply({content: 'Напишите комментарий!'});
     
-    var token = 'NzI2ODY1OTYzNDI0Njc3OTA5.Xvjgrg.dAWQPk-weeKIZbAztS_Mznw6_6Q'
+    var token = 'your token'
     request.post({url: `https://discord.com/api/v9/channels/863369213893017602/messages`, headers: {"Authorization": "Bot "+token, "Content-Type": "application/json"},
     body: JSON.stringify({
         "tts": false,

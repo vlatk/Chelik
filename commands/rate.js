@@ -12,7 +12,7 @@ exports.run = async (robot, mess, args)=>{
     args.shift();
     args = args.join(` `);
     
-    var token = 'NzI2ODY1OTYzNDI0Njc3OTA5.Xvjgrg.dAWQPk-weeKIZbAztS_Mznw6_6Q'
+    var token = 'your token'
     request.post({url: `https://discord.com/api/v9/channels/863369213893017602/messages`, headers: {"Authorization": "Bot "+token, "Content-Type": "application/json"},
     body: JSON.stringify({
         "tts": false,
