@@ -58,7 +58,7 @@ robot.on("ready", function() {
       int = 1;
     }
     if(int === 1){
-        robot.user.setPresence({ status: 'online', activities: [{ name: '~help | V1.7a', type: "PLAYING" }]}) 
+        robot.user.setPresence({ status: 'online', activities: [{ name: '~help | V1.7b', type: "PLAYING" }]}) 
       int = 0;
 }
 }, 5000)})

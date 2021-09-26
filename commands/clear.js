@@ -32,10 +32,13 @@ exports.run = async (robot, mess, args) => {
   
       await mess.channel.messages.fetch({
           limit: amount
-      }).then(messages => {
-          mess.channel.bulkDelete(messages).then().catch(console.error)
+      }).then(async messages => {
+          mess.channel.bulkDelete(messages).catch(console.error)
           var embed7 = new Discord.MessageEmbed({title: 'Очистка сообщений🧹', description: `Успешно удалено ${amount} сообщений!`}).setColor("GREEN")
-          mess.channel.send({ embeds: [embed7] });
+           let botmsg = await mess.channel.send({ embeds: [embed7] });
+           setTimeout(function(){ 
+            botmsg.delete()
+            }, 5000)
       })
   };
   mess.delete().catch();

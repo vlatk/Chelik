@@ -20,5 +20,6 @@
     {"name": "hypixel", "description": "Показывает кол-во игроков на данный момент и показывает статистику игрока на сервере.", "usage": "`~hypixel` / `~hypixel <ник или uuid>`"},
     {"name": "skin", "description": "Показывает ваш Minecraft скин.", "usage": "`~skin <ник>`"},
     {"name": "uuid", "description": "Показывает uuid вашего аккаунта Minecraft.", "usage": "`~uuid <ник>`"},
-    {"name": "rate", "description": "Отправляет отзыв о боте на саппорт сервер в специальный канал", "usage": "`~rate <комментарий>`"}
+    {"name": "rate", "description": "Отправляет отзыв о боте на саппорт сервер в специальный канал", "usage": "`~rate <комментарий>`"},
+    {"name": "button", "description": "Создает сообщение с кнопкой-ссылкой. [Подробный гайд](https://vlatk.webador.com/button-gayd)", "usage": "`~button Текст~сообщения Текст~кнопки https://ваш_сайт`"}
     ]
